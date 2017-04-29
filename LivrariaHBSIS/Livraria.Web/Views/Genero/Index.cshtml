@@ -1,33 +1,48 @@
 ﻿@model IEnumerable<Livraria.Web.ViewModel.GeneroViewModel>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Gêneros";
 }
 
-<h2>Index</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Descricao)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Descricao)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>
-    </tr>
-}
-
-</table>
+<div class="row">
+    <div class="col s12 m12">
+        <div class="card animated fadeInRight">
+            <div class="card-content">
+                <span class="card-title">Gêneros</span>
+                <div class="row">
+                    <div class="col s12 m12 right-align">
+                        @Html.ActionLink("Incluir Gênero", "Create", "Genero", new object { }, new { @class = "btn" })
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s12 m12">
+                        <table class="striped">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Descricao)
+                                    </th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Descricao)
+                                        </td>
+                                        <td>
+                                            <a class="btn-floating light-green" href="@Url.Action("Edit", "Genero", new { id = item.Id })"><i class="material-icons">mode_edit</i></a>
+                                            <a class="btn-floating red" href="@Url.Action("Delete", "Genero", new { id = item.Id })"><i class="material-icons">delete</i></a>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

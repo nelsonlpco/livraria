@@ -7,21 +7,22 @@ namespace Livraria.Web.ViewModel
     {
         [Key]
         public long Id { get; set; }
-        [Required(ErrorMessage = "O campo Titulo é obrigatório.")]
+        [Required(ErrorMessage = "O campo Título é obrigatório.")]
         [MaxLength(150, ErrorMessage = "A descrição deve possuir no maximo 100 caracteres.")]
-        [MinLength(2, ErrorMessage = "O tamanho minimo do nome deve ser 4 caracteres")]
+        [MinLength(2, ErrorMessage = "O tamanho mínimo do nome deve ser 4 caracteres")]
+        [Display(Name = "Título")]
         public string Titulo { get; set; }
         [Required(ErrorMessage = "O campo Descrição é obrigatório.")]
         [MaxLength(150, ErrorMessage = "A descrição deve possuir no maximo 100 caracteres.")]
-        [MinLength(2, ErrorMessage = "O tamanho minimo do nome deve ser 4 caracteres")]
+        [MinLength(2, ErrorMessage = "O tamanho mínimo do nome deve ser 4 caracteres")]
         [Display(Name = "Descrição")]
         public string Descricao { get; set; }
-        [Required(ErrorMessage = "O campo Genero é obrigatório.")]
+        [Required(ErrorMessage = "O campo Gênero é obrigatório.")]
         [Display(Name = "Gênero")]
         public long GeneroSelecionado { get; set; }
-        public Genero genero { get; set; }
-        [Required(ErrorMessage = "O campo Autor Principal é obrigatório.")]
-        [Display(Name = "Autor")]
+        public Genero GeneroLivro { get; set; }
+        [Required(ErrorMessage = "O campo Autor principal é obrigatório.")]
+        [Display(Name = "Autor principal")]
         public long AutorSelecionado { get; set; }
         public Autor AutorPrincipal { get; set; }
         [Required(ErrorMessage = "O campo Editora é obrigatório.")]
@@ -32,6 +33,7 @@ namespace Livraria.Web.ViewModel
         [Display(Name = "Ano de publicação")]
         public int AnoPublicacao { get; set; }
         [Required(ErrorMessage = "O campo ISBN é obrigatório.")]
+        [Display(Name = "ISBN")]
         public string Isbn { get; set; }
 
         public Livro LivroViewModelToLivro()
@@ -43,7 +45,7 @@ namespace Livraria.Web.ViewModel
                 AutorPrincipal = this.AutorPrincipal,
                 Descricao = this.Descricao,
                 EditoraPublicacao = this.EditoraPublicacao,
-                genero = this.genero,
+                GeneroLivro = this.GeneroLivro,
                 Isbn = this.Isbn,
                 Titulo = this.Titulo
             };

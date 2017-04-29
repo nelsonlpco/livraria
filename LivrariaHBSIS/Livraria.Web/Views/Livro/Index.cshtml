@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<Livraria.Web.ViewModel.LivroViewModel>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Livros";
 }
 
 <div class="row">
@@ -11,7 +11,7 @@
                 <span class="card-title">Acervo de Livros</span>
                 <div class="row">
                     <div class="col s12 m12 right-align">
-                        @Html.ActionLink("Incluir Livro", "Create","Livro", new object { },new { @class = "btn"})
+                        @Html.ActionLink("Incluir Livro", "Create", "Livro", new object { }, new { @class = "btn" })
                     </div>
                 </div>
 
@@ -50,9 +50,9 @@
                                     @Html.DisplayFor(modelItem => item.Isbn)
                                 </td>
                                 <td>
-                                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-                                    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-                                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                                    <a class="btn-floating light-green" href="@Url.Action("Edit", "Livro", new { id = item.Id })"><i class="material-icons">mode_edit</i></a>
+                                    <a class="btn-floating light-blue" href="@Url.Action("Details", "Livro", new { id = item.Id })"><i class="material-icons">visibility</i></a>
+                                    <a class="btn-floating red" href="@Url.Action("Delete", "Livro", new { id = item.Id })"><i class="material-icons">delete</i></a>
                                 </td>
                             </tr>
                         }

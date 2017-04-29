@@ -23,6 +23,9 @@ namespace LivrariaHBSIS.Infra
         {
             SessionFactory = CreateSessionFactory();
             Session = SessionFactory.OpenSession();
+        }
+        public void BeginTransaction()
+        {
             Transaction = Session.BeginTransaction();
         }
 

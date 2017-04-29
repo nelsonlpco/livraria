@@ -22,16 +22,16 @@ namespace Livraria.Web.Controllers
         }
         public ActionResult Index()
         {
-            var livrosViewModel = _livroService.ListarLivros().Select(l => new LivroViewModel
+            var livrosViewModel = _livroService.ListarLivros().Select(livro => new LivroViewModel
             {
-                Id = l.Id,
-                AnoPublicacao = l.AnoPublicacao,
-                AutorPrincipal = l.AutorPrincipal,
-                Descricao = l.Descricao,
-                EditoraPublicacao = l.EditoraPublicacao,
-                genero = l.genero,
-                Isbn = l.Isbn,
-                Titulo = l.Titulo
+                Id = livro.Id,
+                AnoPublicacao = livro.AnoPublicacao,
+                AutorPrincipal = livro.AutorPrincipal,
+                Descricao = livro.Descricao,
+                EditoraPublicacao = livro.EditoraPublicacao,
+                GeneroLivro = livro.GeneroLivro,
+                Isbn = livro.Isbn,
+                Titulo = livro.Titulo
             }).OrderBy(l => l.Titulo).ToList();
 
             return View(livrosViewModel);
@@ -39,7 +39,22 @@ namespace Livraria.Web.Controllers
 
         public ActionResult Details(int id)
         {
-            return View();
+            var livro = _livroService.RecuperarLivroPorId(id);
+            var livroViewModel = new LivroViewModel
+            {
+                Id = livro.Id,
+                AnoPublicacao = livro.AnoPublicacao,
+                AutorPrincipal = livro.AutorPrincipal,
+                Descricao = livro.Descricao,
+                EditoraPublicacao = livro.EditoraPublicacao,
+                GeneroLivro = livro.GeneroLivro,
+                Isbn = livro.Isbn,
+                Titulo = livro.Titulo,
+                AutorSelecionado = livro.AutorPrincipal == null ? 0 : livro.AutorPrincipal.Id,
+                GeneroSelecionado = livro.GeneroLivro == null ? 0 : livro.GeneroLivro.Id,
+                EditoraSelecionada = livro.EditoraPublicacao == null ? 0 : livro.EditoraPublicacao.Id
+            };
+            return View(livroViewModel);
         }
 
         public ActionResult Create()
@@ -58,7 +73,7 @@ namespace Livraria.Web.Controllers
                     AnoPublicacao = livroViewModel.AnoPublicacao,
                     Descricao = livroViewModel.Descricao,
                     EditoraPublicacao = _editoraService.RecuperarEditoraPorId(livroViewModel.EditoraSelecionada),
-                    genero = _generoService.RecuperarGeneroPorId(livroViewModel.GeneroSelecionado),
+                    GeneroLivro = _generoService.RecuperarGeneroPorId(livroViewModel.GeneroSelecionado),
                     AutorPrincipal = _autorService.RecuperarAutorPorId(livroViewModel.AutorSelecionado),
                     Isbn = livroViewModel.Isbn,
                     Id = livroViewModel.Id,
@@ -84,12 +99,12 @@ namespace Livraria.Web.Controllers
                 AutorPrincipal = livro.AutorPrincipal,
                 Descricao = livro.Descricao,
                 EditoraPublicacao = livro.EditoraPublicacao,
-                genero = livro.genero,
+                GeneroLivro = livro.GeneroLivro,
                 Isbn = livro.Isbn,
                 Titulo = livro.Titulo,
-                AutorSelecionado = livro.AutorPrincipal.Id,
-                GeneroSelecionado = livro.genero.Id,
-                EditoraSelecionada = livro.EditoraPublicacao.Id
+                AutorSelecionado = livro.AutorPrincipal == null ? 0 : livro.AutorPrincipal.Id,
+                GeneroSelecionado = livro.GeneroLivro == null ? 0 : livro.GeneroLivro.Id,
+                EditoraSelecionada = livro.EditoraPublicacao == null ? 0 : livro.EditoraPublicacao.Id
             };
             CarregarItensParaSelect();
             return View(livroViewModel);
@@ -105,7 +120,7 @@ namespace Livraria.Web.Controllers
                     AnoPublicacao = livroViewModel.AnoPublicacao,
                     Descricao = livroViewModel.Descricao,
                     EditoraPublicacao = _editoraService.RecuperarEditoraPorId(livroViewModel.EditoraSelecionada),
-                    genero = _generoService.RecuperarGeneroPorId(livroViewModel.GeneroSelecionado),
+                    GeneroLivro = _generoService.RecuperarGeneroPorId(livroViewModel.GeneroSelecionado),
                     AutorPrincipal = _autorService.RecuperarAutorPorId(livroViewModel.AutorSelecionado),
                     Isbn = livroViewModel.Isbn,
                     Id = livroViewModel.Id,
@@ -130,7 +145,7 @@ namespace Livraria.Web.Controllers
                 AutorPrincipal = livro.AutorPrincipal,
                 Descricao = livro.Descricao,
                 EditoraPublicacao = livro.EditoraPublicacao,
-                genero = livro.genero,
+                GeneroLivro = livro.GeneroLivro,
                 Isbn = livro.Isbn,
                 Titulo = livro.Titulo
             };

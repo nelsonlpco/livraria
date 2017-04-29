@@ -18,6 +18,7 @@ namespace LivrariaHBSIS.Infra.Repository
         {
             try
             {
+                _nhContext.BeginTransaction();
                 _nhContext.Session.Delete(obj);
                 _nhContext.Transaction.Commit();
             }
@@ -42,6 +43,7 @@ namespace LivrariaHBSIS.Infra.Repository
         {
             try
             {
+                _nhContext.BeginTransaction();
                 _nhContext.Session.Save(obj);
                 _nhContext.Transaction.Commit();
             }
@@ -55,6 +57,7 @@ namespace LivrariaHBSIS.Infra.Repository
         {
             try
             {
+                _nhContext.BeginTransaction();
                 _nhContext.Session.Update(obj);
                 _nhContext.Transaction.Commit();
             }
@@ -65,7 +68,7 @@ namespace LivrariaHBSIS.Infra.Repository
         }
         public void Dispose()
         {
-            _nhContext.Dispose();
+            //_nhContext.Dispose();
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Livraria.Web.ViewModels;
+using LivrariaHBSIS.domain;
 using LivrariaHBSIS.domain.Interfaces.Services;
 using LivrariaHBSIS.Services;
 using System.Linq;
@@ -17,15 +18,10 @@ namespace Livraria.Web.Controllers
         public ActionResult Index()
         {
             var autoresViewModel = _autorService.ListarAutores()
-                .Select(autor => new AutorViewModel()
-                .AutorToAutorViewModel(autor))
+                .Select(autor => new AutorViewModel(autor.Id, autor.Nome)
+                )
                 .ToList();
             return View(autoresViewModel);
-        }
-
-        public ActionResult Details(int id)
-        {
-            return View();
         }
 
         public ActionResult Create()
@@ -38,7 +34,13 @@ namespace Livraria.Web.Controllers
         {
             try
             {
-                _autorService.IncluirAutor(autorViewModel.AutorViewModelToAutor());
+                var autor = new Autor
+                {
+                    Id = autorViewModel.Id,
+                    Nome = autorViewModel.Nome
+                };
+
+                _autorService.IncluirAutor(autor);
                 return RedirectToAction("Index");
             }
             catch
@@ -50,7 +52,7 @@ namespace Livraria.Web.Controllers
         public ActionResult Edit(int id)
         {
             var autor = _autorService.RecuperarAutorPorId(id);
-            return View(new AutorViewModel().AutorToAutorViewModel(autor));
+            return View(new AutorViewModel(autor.Id, autor.Nome));
         }
 
         [HttpPost]
@@ -58,7 +60,14 @@ namespace Livraria.Web.Controllers
         {
             try
             {
-                _autorService.EditarAutor(autorViewModel.AutorViewModelToAutor());
+                var autor = new Autor
+                {
+                    Id = autorViewModel.Id,
+                    Nome = autorViewModel.Nome
+                };
+
+                _autorService.EditarAutor(autor);
+
                 return RedirectToAction("Index");
             }
             catch
@@ -70,7 +79,7 @@ namespace Livraria.Web.Controllers
         public ActionResult Delete(int id)
         {
             var autor = _autorService.RecuperarAutorPorId(id);
-            return View(new AutorViewModel().AutorToAutorViewModel(autor));
+            return View(new AutorViewModel(autor.Id, autor.Nome));
         }
 
         [HttpPost]
@@ -78,7 +87,14 @@ namespace Livraria.Web.Controllers
         {
             try
             {
-                _autorService.RemoverAutor(autorViewModel.AutorViewModelToAutor());
+                var autor = new Autor
+                {
+                    Id = autorViewModel.Id,
+                    Nome = autorViewModel.Nome
+                };
+
+                _autorService.RemoverAutor(autor);
+
                 return RedirectToAction("Index");
             }
             catch

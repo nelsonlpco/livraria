@@ -13,7 +13,7 @@ namespace LivrariaHBSIS.Infra.Map
             Map(m => m.AnoPublicacao);
             Map(m => m.Isbn);
 
-            References(x => x.genero);
+            References(x => x.GeneroLivro);
             References(x => x.AutorPrincipal);
             References(x => x.EditoraPublicacao);
         }

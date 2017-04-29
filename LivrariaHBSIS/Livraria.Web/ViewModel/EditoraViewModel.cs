@@ -8,8 +8,7 @@ namespace Livraria.Web.ViewModel
         [Key]
         public long Id { get; set; }
         [Required(ErrorMessage = "Campo obrigatório.")]
-        [MaxLength(150, ErrorMessage = "O nome deve possuir no maximo 150 caracteres.")]
-        [MinLength(2, ErrorMessage = "O tamanho minimo do nome deve ser 2 caracteres")]
+        [MaxLength(150, ErrorMessage = "O nome deve possuir no máximo 150 caracteres.")]
         public string Nome { get; set; }
 
         public EditoraViewModel()

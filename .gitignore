@@ -1,0 +1,10 @@
+LivrariaHBSIS/packages/**/*
+LivrariaHBSIS/.vs/**/*
+LivrariaHBSIS/Livraria.Web/bin/**/*
+LivrariaHBSIS/Livraria.Web/obj/**/*
+LivrariaHBSIS/LivrariaHBSIS.domain/bin/**/*
+LivrariaHBSIS/LivrariaHBSIS.domain/obj/**/*
+LivrariaHBSIS/LivrariaHBSIS.Infra/bin/**/*
+LivrariaHBSIS/LivrariaHBSIS.Infra/obj/**/*
+LivrariaHBSIS/LivrariaHBSIS.Services/bin/**/*
+LivrariaHBSIS/LivrariaHBSIS.Services/obj/**/*

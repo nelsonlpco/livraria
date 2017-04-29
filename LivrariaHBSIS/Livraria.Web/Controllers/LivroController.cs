@@ -1,4 +1,5 @@
 ﻿using Livraria.Web.ViewModel;
+using LivrariaHBSIS.domain;
 using LivrariaHBSIS.domain.Interfaces.Services;
 using LivrariaHBSIS.Services;
 using System.Linq;
@@ -9,12 +10,16 @@ namespace Livraria.Web.Controllers
     public class LivroController : Controller
     {
         private readonly ILivroService _livroService;
-
+        private readonly IAutorService _autorService;
+        private readonly IGeneroService _generoService;
+        private readonly IEditoraService _editoraService;
         public LivroController()
         {
             _livroService = new LivroService();
+            _autorService = new AutorService();
+            _generoService = new GeneroService();
+            _editoraService = new EditoraService();
         }
-        // GET: Livro
         public ActionResult Index()
         {
             var livrosViewModel = _livroService.ListarLivros().Select(l => new LivroViewModel
@@ -32,26 +37,35 @@ namespace Livraria.Web.Controllers
             return View(livrosViewModel);
         }
 
-        // GET: Livro/Details/5
         public ActionResult Details(int id)
         {
             return View();
         }
 
-        // GET: Livro/Create
         public ActionResult Create()
         {
+            CarregarItensParaSelect();
             return View();
         }
 
-        // POST: Livro/Create
         [HttpPost]
         public ActionResult Create(LivroViewModel livroViewModel)
         {
             try
             {
+                var livro = new Livro
+                {
+                    AnoPublicacao = livroViewModel.AnoPublicacao,
+                    Descricao = livroViewModel.Descricao,
+                    EditoraPublicacao = _editoraService.RecuperarEditoraPorId(livroViewModel.EditoraSelecionada),
+                    genero = _generoService.RecuperarGeneroPorId(livroViewModel.GeneroSelecionado),
+                    AutorPrincipal = _autorService.RecuperarAutorPorId(livroViewModel.AutorSelecionado),
+                    Isbn = livroViewModel.Isbn,
+                    Id = livroViewModel.Id,
+                    Titulo = livroViewModel.Titulo
+                };
+                _livroService.IncluirLivro(livro);
 
-                _livroService.IncluirLivro(livroViewModel.LivroViewModelToLivro());
                 return RedirectToAction("Index");
             }
             catch
@@ -60,7 +74,6 @@ namespace Livraria.Web.Controllers
             }
         }
 
-        // GET: Livro/Edit/5
         public ActionResult Edit(long id)
         {
             var livro = _livroService.RecuperarLivroPorId(id);
@@ -73,19 +86,32 @@ namespace Livraria.Web.Controllers
                 EditoraPublicacao = livro.EditoraPublicacao,
                 genero = livro.genero,
                 Isbn = livro.Isbn,
-                Titulo = livro.Titulo
+                Titulo = livro.Titulo,
+                AutorSelecionado = livro.AutorPrincipal.Id,
+                GeneroSelecionado = livro.genero.Id,
+                EditoraSelecionada = livro.EditoraPublicacao.Id
             };
-
+            CarregarItensParaSelect();
             return View(livroViewModel);
         }
 
-        // POST: Livro/Edit/5
         [HttpPost]
         public ActionResult Edit(int id, LivroViewModel livroViewModel)
         {
             try
             {
-                _livroService.EditarLivro(livroViewModel.LivroViewModelToLivro());
+                var livro = new Livro
+                {
+                    AnoPublicacao = livroViewModel.AnoPublicacao,
+                    Descricao = livroViewModel.Descricao,
+                    EditoraPublicacao = _editoraService.RecuperarEditoraPorId(livroViewModel.EditoraSelecionada),
+                    genero = _generoService.RecuperarGeneroPorId(livroViewModel.GeneroSelecionado),
+                    AutorPrincipal = _autorService.RecuperarAutorPorId(livroViewModel.AutorSelecionado),
+                    Isbn = livroViewModel.Isbn,
+                    Id = livroViewModel.Id,
+                    Titulo = livroViewModel.Titulo
+                };
+                _livroService.EditarLivro(livro);
                 return RedirectToAction("Index");
             }
             catch
@@ -94,7 +120,6 @@ namespace Livraria.Web.Controllers
             }
         }
 
-        // GET: Livro/Delete/5
         public ActionResult Delete(long id)
         {
             var livro = _livroService.RecuperarLivroPorId(id);
@@ -112,7 +137,6 @@ namespace Livraria.Web.Controllers
             return View(livroViewModel);
         }
 
-        // POST: Livro/Delete/5
         [HttpPost]
         public ActionResult Delete(int id, LivroViewModel livroViewModel)
         {
@@ -125,6 +149,22 @@ namespace Livraria.Web.Controllers
             {
                 return View();
             }
+        }
+
+        private void CarregarItensParaSelect()
+        {
+            var autores = _autorService
+               .ListarAutores()
+               .Select(autor => new SelectListItem { Value = autor.Id.ToString(), Text = autor.Nome })
+               .ToList();
+            ViewBag.SelectListAutores = new SelectList(autores, "Value", "Text");
+
+            var generos = _generoService.ListarGeneros().Select(genero => new SelectListItem { Value = genero.Id.ToString(), Text = genero.Descricao }).ToList();
+            ViewBag.SelectListGeneros = new SelectList(generos, "Value", "Text");
+
+            var editoras = _editoraService.ListarEditoras().Select(editora => new SelectListItem { Value = editora.Id.ToString(), Text = editora.Nome }).ToList();
+            ViewBag.SelectListEditoras = new SelectList(editoras, "Value", "Text");
+
         }
     }
 }

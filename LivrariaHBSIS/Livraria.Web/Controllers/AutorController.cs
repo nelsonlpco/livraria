@@ -1,18 +1,17 @@
-﻿using Livraria.Web.ViewModels;
-using LivrariaHBSIS.domain;
+﻿using LivrariaHBSIS.domain;
 using LivrariaHBSIS.domain.Interfaces.Services;
-using LivrariaHBSIS.Services;
+using LivrariaHBSIS.Web.ViewModels;
 using System.Linq;
 using System.Web.Mvc;
 
-namespace Livraria.Web.Controllers
+namespace LivrariaHBSIS.Web.Controllers
 {
     public class AutorController : Controller
     {
         private readonly IAutorService _autorService;
-        public AutorController()
+        public AutorController(IAutorService autorService)
         {
-            _autorService = new AutorService();
+            _autorService = autorService;
         }
 
         public ActionResult Index()

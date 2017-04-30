@@ -1,11 +1,12 @@
-﻿using System;
+﻿using Livraria.Web.IoC;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 
-namespace Livraria.Web
+namespace LivrariaHBSIS.Web
 {
     public class MvcApplication : System.Web.HttpApplication
     {
@@ -13,6 +14,9 @@ namespace Livraria.Web
         {
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+
+            UnityBootstrapper.Initialise();
+
         }
     }
 }

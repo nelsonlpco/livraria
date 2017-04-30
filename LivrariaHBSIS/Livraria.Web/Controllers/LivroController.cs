@@ -1,11 +1,10 @@
-﻿using Livraria.Web.ViewModel;
-using LivrariaHBSIS.domain;
+﻿using LivrariaHBSIS.domain;
 using LivrariaHBSIS.domain.Interfaces.Services;
-using LivrariaHBSIS.Services;
+using LivrariaHBSIS.Web.ViewModel;
 using System.Linq;
 using System.Web.Mvc;
 
-namespace Livraria.Web.Controllers
+namespace LivrariaHBSIS.Web.Controllers
 {
     public class LivroController : Controller
     {
@@ -13,12 +12,12 @@ namespace Livraria.Web.Controllers
         private readonly IAutorService _autorService;
         private readonly IGeneroService _generoService;
         private readonly IEditoraService _editoraService;
-        public LivroController()
+        public LivroController(ILivroService livroService, IAutorService autorService, IGeneroService generoService, IEditoraService editoraService)
         {
-            _livroService = new LivroService();
-            _autorService = new AutorService();
-            _generoService = new GeneroService();
-            _editoraService = new EditoraService();
+            _livroService = livroService;
+            _autorService = autorService;
+            _generoService = generoService;
+            _editoraService = editoraService;
         }
         public ActionResult Index()
         {

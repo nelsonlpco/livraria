@@ -1,7 +1,6 @@
 ﻿using LivrariaHBSIS.domain;
 using LivrariaHBSIS.domain.Interfaces;
 using LivrariaHBSIS.domain.Interfaces.Services;
-using LivrariaHBSIS.Infra.Repository;
 using System.Collections.Generic;
 
 namespace LivrariaHBSIS.Services
@@ -9,9 +8,9 @@ namespace LivrariaHBSIS.Services
     public class EditoraService : IEditoraService
     {
         private readonly IEditoraRepository _editoraRepository;
-        public EditoraService()
+        public EditoraService(IEditoraRepository editoraRepository)
         {
-            _editoraRepository = new EditoraRepository();
+            _editoraRepository = editoraRepository;
         }
         public void EditarEditora(Editora editora)
         {

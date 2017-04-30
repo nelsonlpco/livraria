@@ -1,20 +1,18 @@
-﻿using Livraria.Web.ViewModel;
-using LivrariaHBSIS.domain;
-using LivrariaHBSIS.domain.Interfaces.Services;
-using LivrariaHBSIS.Services;
+﻿using LivrariaHBSIS.domain.Interfaces.Services;
+using LivrariaHBSIS.Web.ViewModel;
 using System;
 using System.Linq;
 using System.Web.Mvc;
 
-namespace Livraria.Web.Controllers
+namespace LivrariaHBSIS.Web.Controllers
 {
     public class GeneroController : Controller
     {
         private readonly IGeneroService _generoService;
 
-        public GeneroController()
+        public GeneroController(IGeneroService generoService)
         {
-            _generoService = new GeneroService();
+            _generoService = generoService;
         }
 
         public ActionResult Index()
@@ -27,11 +25,6 @@ namespace Livraria.Web.Controllers
                     Descricao = g.Descricao
                 }).ToList();
             return View(generosViewModel);
-        }
-
-        public ActionResult Details(int id)
-        {
-            return View();
         }
 
         public ActionResult Create()

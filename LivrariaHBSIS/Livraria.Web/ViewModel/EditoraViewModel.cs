@@ -1,7 +1,7 @@
 ﻿using LivrariaHBSIS.domain;
 using System.ComponentModel.DataAnnotations;
 
-namespace Livraria.Web.ViewModel
+namespace LivrariaHBSIS.Web.ViewModel
 {
     public class EditoraViewModel
     {

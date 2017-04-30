@@ -1,18 +1,17 @@
-﻿using Livraria.Web.ViewModel;
-using LivrariaHBSIS.domain.Interfaces.Services;
-using LivrariaHBSIS.Services;
+﻿using LivrariaHBSIS.domain.Interfaces.Services;
+using LivrariaHBSIS.Web.ViewModel;
 using System.Linq;
 using System.Web.Mvc;
 
-namespace Livraria.Web.Controllers
+namespace LivrariaHBSIS.Web.Controllers
 {
     public class EditoraController : Controller
     {
         private IEditoraService _editoraService;
 
-        public EditoraController()
+        public EditoraController(IEditoraService editoraService)
         {
-            _editoraService = new EditoraService();
+            _editoraService = editoraService;
         }
         public ActionResult Index()
         {

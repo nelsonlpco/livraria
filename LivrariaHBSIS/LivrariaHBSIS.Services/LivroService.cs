@@ -1,7 +1,6 @@
 ﻿using LivrariaHBSIS.domain;
 using LivrariaHBSIS.domain.Interfaces;
 using LivrariaHBSIS.domain.Interfaces.Services;
-using LivrariaHBSIS.Infra.Repository;
 using System.Collections.Generic;
 
 namespace LivrariaHBSIS.Services
@@ -9,9 +8,9 @@ namespace LivrariaHBSIS.Services
     public class LivroService : ILivroService
     {
         private ILivroRepository _livroRepository;
-        public LivroService()
+        public LivroService(ILivroRepository livroRepository)
         {
-            _livroRepository = new LivroRepository();
+            _livroRepository = livroRepository;
         }
         public void EditarLivro(Livro livro)
         {

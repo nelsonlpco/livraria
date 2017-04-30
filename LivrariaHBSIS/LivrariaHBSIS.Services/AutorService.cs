@@ -1,8 +1,6 @@
 ﻿using LivrariaHBSIS.domain;
 using LivrariaHBSIS.domain.Interfaces;
 using LivrariaHBSIS.domain.Interfaces.Services;
-using LivrariaHBSIS.Infra.Repository;
-using System;
 using System.Collections.Generic;
 
 namespace LivrariaHBSIS.Services
@@ -11,9 +9,9 @@ namespace LivrariaHBSIS.Services
     {
         private readonly IAutorRepository _autorRepository;
 
-        public AutorService()
+        public AutorService(IAutorRepository autorRepository)
         {
-            _autorRepository = new AutorRepository();
+            _autorRepository = autorRepository;
         }
 
         public void EditarAutor(Autor autor)

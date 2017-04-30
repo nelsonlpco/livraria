@@ -1,7 +1,6 @@
 ﻿using LivrariaHBSIS.domain;
 using LivrariaHBSIS.domain.Interfaces;
 using LivrariaHBSIS.domain.Interfaces.Services;
-using LivrariaHBSIS.Infra.Repository;
 using System.Collections.Generic;
 
 namespace LivrariaHBSIS.Services
@@ -10,9 +9,9 @@ namespace LivrariaHBSIS.Services
     {
         private readonly IGeneroRepository _generoRepository;
 
-        public GeneroService()
+        public GeneroService(IGeneroRepository generoRepository)
         {
-            _generoRepository = new GeneroRepository();
+            _generoRepository = generoRepository;
         }
         public void EditarGenero(Genero genero)
         {

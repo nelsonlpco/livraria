@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26403.7
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Livraria.Web", "Livraria.Web\Livraria.Web.csproj", "{40D40FD1-A6C6-497A-A56E-5CDBBFE8F77C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LivrariaHBSIS.Web", "Livraria.Web\LivrariaHBSIS.Web.csproj", "{40D40FD1-A6C6-497A-A56E-5CDBBFE8F77C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LivrariaHBSIS.domain", "LivrariaHBSIS.domain\LivrariaHBSIS.domain.csproj", "{7E581985-38DD-4F14-AD70-F6E660C5FFA1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LivrariaHBSIS.Infra", "LivrariaHBSIS.Infra\LivrariaHBSIS.Infra.csproj", "{F17FEE48-BCFE-40BD-880B-094D57F6FC57}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LivrariaHBSIS.Services", "LivrariaHBSIS.Services\LivrariaHBSIS.Services.csproj", "{6F03C8E8-E795-46CE-8FA7-4881B351A08A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LivrariaHBSIS.Infra.IoC", "LivrariaHBSIS.ServiceLocator\LivrariaHBSIS.Infra.IoC.csproj", "{9564DADE-5408-42CC-82A4-0FDF10F24EE7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{6F03C8E8-E795-46CE-8FA7-4881B351A08A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6F03C8E8-E795-46CE-8FA7-4881B351A08A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6F03C8E8-E795-46CE-8FA7-4881B351A08A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9564DADE-5408-42CC-82A4-0FDF10F24EE7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9564DADE-5408-42CC-82A4-0FDF10F24EE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9564DADE-5408-42CC-82A4-0FDF10F24EE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9564DADE-5408-42CC-82A4-0FDF10F24EE7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

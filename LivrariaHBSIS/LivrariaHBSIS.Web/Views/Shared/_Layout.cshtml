@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Acervo</title>
+    <link href="~/Content/materialize.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/fonts/googlefonts/material-icons.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/animate.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+</head>
+<body>
+    <nav class="blue-grey darken-4" role="navigation">
+        <div class="nav-wrapper container">
+
+            @Html.ActionLink("Livraria HBSIS", "Index", "Home", new { area = "" }, new { @class = "brand-logo" })
+            <ul class="right hide-on-med-and-down">
+                <li><a href="/Livro"><i class="material-icons left">import_contacts</i> Livros</a></li>
+                <li><a href="/Genero"><i class="material-icons left">whatshot</i> Gêneros</a></li>
+                <li><a href="/Autor"><i class="material-icons left">person</i> Autores</a></li>
+                <li><a href="/Editora"><i class="material-icons left">store</i> Editoras</a></li>
+            </ul>
+
+            <ul id="nav-mobile" class="side-nav" style="transform: translateX(-100%);">
+                <li><a href="/Livro"><i class="material-icons left">import_contacts</i> Livros</a></li>
+                <li><a href="/Genero"><i class="material-icons left">whatshot</i> Genero</a></li>
+                <li><a href="/Autor"><i class="material-icons left">person</i> Autores</a></li>
+                <li><a href="/Editora"><i class="material-icons left">store</i> Editora</a></li>
+            </ul>
+            <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+        </div>
+    </nav>
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Livraria HBSIS - Nelson Luiz P.C de Oliveira.</p>
+        </footer>
+    </div>
+
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/materialize.min.js"></script>
+    <script src="~/Scripts/Init.js"></script>
+</body>
+</html>

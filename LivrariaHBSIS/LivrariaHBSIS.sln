@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26403.7
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LivrariaHBSIS.Web", "Livraria.Web\LivrariaHBSIS.Web.csproj", "{40D40FD1-A6C6-497A-A56E-5CDBBFE8F77C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LivrariaHBSIS.Web", "LivrariaHBSIS.Web\LivrariaHBSIS.Web.csproj", "{40D40FD1-A6C6-497A-A56E-5CDBBFE8F77C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LivrariaHBSIS.domain", "LivrariaHBSIS.domain\LivrariaHBSIS.domain.csproj", "{7E581985-38DD-4F14-AD70-F6E660C5FFA1}"
 EndProject
@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LivrariaHBSIS.Infra", "Livr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LivrariaHBSIS.Services", "LivrariaHBSIS.Services\LivrariaHBSIS.Services.csproj", "{6F03C8E8-E795-46CE-8FA7-4881B351A08A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LivrariaHBSIS.Infra.IoC", "LivrariaHBSIS.ServiceLocator\LivrariaHBSIS.Infra.IoC.csproj", "{9564DADE-5408-42CC-82A4-0FDF10F24EE7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LivrariaHBSIS.Infra.IoC", "LivrariaHBSIS.Infra.IoC\LivrariaHBSIS.Infra.IoC.csproj", "{9564DADE-5408-42CC-82A4-0FDF10F24EE7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

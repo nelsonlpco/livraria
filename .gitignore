@@ -10,4 +10,4 @@ LivrariaHBSIS/LivrariaHBSIS.Services/bin/**/*
 LivrariaHBSIS/LivrariaHBSIS.Services/obj/**/*
 LivrariaHBSIS/LivrariaHBSIS.Infra.IoC/obj/**/*
 LivrariaHBSIS/LivrariaHBSIS.Infra.IoC/bin/**/*
-
+LivrariaHBSIS/LivrariaHBSIS.Web/Properties/PublishProfiles/CustomProfile.pubxml.user

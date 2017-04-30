@@ -40,11 +40,17 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="bin/LivrariaHBSIS.Infra.dll.config">
       <publishTime>04/30/2017 07:19:18</publishTime>
     </File>
+    <File Include="bin/LivrariaHBSIS.Infra.IoC.dll">
+      <publishTime>04/30/2017 09:51:24</publishTime>
+    </File>
     <File Include="bin/LivrariaHBSIS.ServiceLocator.dll">
       <publishTime>04/30/2017 08:33:51</publishTime>
     </File>
     <File Include="bin/LivrariaHBSIS.Services.dll">
       <publishTime>04/30/2017 08:33:51</publishTime>
+    </File>
+    <File Include="bin/LivrariaHBSIS.Web.dll">
+      <publishTime>04/30/2017 09:51:34</publishTime>
     </File>
     <File Include="bin/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll">
       <publishTime>12/13/2016 04:10:32</publishTime>
@@ -341,7 +347,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/29/2017 19:58:27</publishTime>
     </File>
     <File Include="Views/Livro/Create.cshtml">
-      <publishTime>04/29/2017 19:58:27</publishTime>
+      <publishTime>04/30/2017 09:26:53</publishTime>
     </File>
     <File Include="Views/Livro/Delete.cshtml">
       <publishTime>04/29/2017 19:58:27</publishTime>
@@ -350,10 +356,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/29/2017 19:58:27</publishTime>
     </File>
     <File Include="Views/Livro/Edit.cshtml">
-      <publishTime>04/29/2017 19:58:27</publishTime>
+      <publishTime>04/30/2017 09:29:57</publishTime>
     </File>
     <File Include="Views/Livro/Index.cshtml">
-      <publishTime>04/29/2017 19:58:27</publishTime>
+      <publishTime>04/30/2017 09:28:02</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
       <publishTime>04/29/2017 19:35:42</publishTime>
@@ -365,7 +371,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/28/2017 12:53:26</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>04/30/2017 08:34:08</publishTime>
+      <publishTime>04/30/2017 09:51:40</publishTime>
     </File>
   </ItemGroup>
 </Project>

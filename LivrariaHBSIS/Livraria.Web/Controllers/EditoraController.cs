@@ -19,11 +19,6 @@ namespace LivrariaHBSIS.Web.Controllers
             return View(editorasViewModel);
         }
 
-        public ActionResult Details(long id)
-        {
-            return View();
-        }
-
         public ActionResult Create()
         {
             return View();
